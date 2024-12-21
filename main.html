@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAI COMPRAR O PC?</title>
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px black;
+        }
+        button {
+            font-family: 'Press Start 2P', cursive;
+            background: #000;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+        button:hover {
+            background: #444;
+            transform: scale(1.1);
+        }
+        #nao {
+            position: absolute;
+            top: 60%; /* Posição inicial lógica */
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #coraçao {
+            font-size: 4rem;
+            color: #ff69b4;
+            display: none;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px black;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script>
+        function moverBotao() {
+            const botaoNao = document.getElementById('nao');
+            const larguraJanela = window.innerWidth - 100; // Considera a largura do botão
+            const alturaJanela = window.innerHeight - 50; // Considera a altura do botão
+
+            const novaPosicaoX = Math.random() * larguraJanela;
+            const novaPosicaoY = Math.random() * alturaJanela;
+
+            botaoNao.style.left = `${novaPosicaoX}px`;
+            botaoNao.style.top = `${novaPosicaoY}px`;
+        }
+
+        function mostrarCoracao() {
+            const coracao = document.getElementById('coraçao');
+            coracao.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>VAI COMPRAR O PC?</h1>
+    <button onclick="mostrarCoracao()">Sim</button>
+    <button id="nao" onmouseover="moverBotao()">Não</button>
+    <div id="coraçao">❤️</div>
+</body>
+</html>
